@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div>
+        <p>Hub center-to-left flange distance: {{ data.centerToLeft }} mm</p>
+        <p>Hub center-to-right flange distance: {{ data.centerToRight }} mm</p>
+        <p>Hub flange diameter: {{ data.flangeDiameter }} mm</p>
+        <p>Number of each spoke crosses: {{ data.crosses }}</p>
+        <p>Rim effective diameter: {{ data.ERD }} mm</p>
+        <p>Number of spoke holes: {{ data.holes }}</p>
+        <p>Left spokes length: {{ data.leftSpoke }} mm</p>
+        <p>Right spokes length: {{ data.rightSpoke }} mm</p>
+    </div>
+{% endblock %}

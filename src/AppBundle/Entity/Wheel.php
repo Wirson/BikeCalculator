@@ -6,8 +6,9 @@
  * Time: 10:11
  */
 
-namespace AppBundle;
+namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 
 class Wheel
 {
@@ -27,24 +28,152 @@ class Wheel
     private $resultLeft;
     private $resultRight;
 
+//    /**
+//     * Wheel constructor.
+//     * @param $ERD
+//     * @param $holes
+//     * @param $centerToLeft
+//     * @param $centerToRight
+//     * @param $flangeDiameter
+//     * @param $crosses
+//     */
+//    public function __construct($ERD, $holes, $centerToLeft, $centerToRight, $flangeDiameter, $crosses)
+//    {
+//        $this->ERD = $ERD;
+//        //formula I use, requires half the number of spokes
+//        $this->holes = $holes / 2;
+//        $this->centerToLeft = $centerToLeft;
+//        $this->centerToRight = $centerToRight;
+//        $this->flangeDiameter = $flangeDiameter;
+//        $this->crosses = $crosses;
+//    }
+
     /**
-     * Wheel constructor.
-     * @param $ERD
-     * @param $holes
-     * @param $centerToLeft
-     * @param $centerToRight
-     * @param $flangeDiameter
-     * @param $crosses
+     * @return mixed
      */
-    public function __construct($ERD, $holes, $centerToLeft, $centerToRight, $flangeDiameter, $crosses)
+    public function getERD()
+    {
+        return $this->ERD;
+    }
+
+    /**
+     * @param mixed $ERD
+     */
+    public function setERD($ERD)
     {
         $this->ERD = $ERD;
-        //formula I use, requires half the number of spokes
-        $this->holes = $holes / 2;
+    }
+
+    /**
+     * @return float|int
+     */
+    public function getHoles()
+    {
+        return $this->holes;
+    }
+
+    /**
+     * @param float|int $holes
+     */
+    public function setHoles($holes)
+    {
+        $this->holes = $holes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCenterToLeft()
+    {
+        return $this->centerToLeft;
+    }
+
+    /**
+     * @param mixed $centerToLeft
+     */
+    public function setCenterToLeft($centerToLeft)
+    {
         $this->centerToLeft = $centerToLeft;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCenterToRight()
+    {
+        return $this->centerToRight;
+    }
+
+    /**
+     * @param mixed $centerToRight
+     */
+    public function setCenterToRight($centerToRight)
+    {
         $this->centerToRight = $centerToRight;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFlangeDiameter()
+    {
+        return $this->flangeDiameter;
+    }
+
+    /**
+     * @param mixed $flangeDiameter
+     */
+    public function setFlangeDiameter($flangeDiameter)
+    {
         $this->flangeDiameter = $flangeDiameter;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCrosses()
+    {
+        return $this->crosses;
+    }
+
+    /**
+     * @param mixed $crosses
+     */
+    public function setCrosses($crosses)
+    {
         $this->crosses = $crosses;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResultLeft()
+    {
+        return $this->resultLeft;
+    }
+
+    /**
+     * @param mixed $resultLeft
+     */
+    public function setResultLeft($resultLeft)
+    {
+        $this->resultLeft = $resultLeft;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResultRight()
+    {
+        return $this->resultRight;
+    }
+
+    /**
+     * @param mixed $resultRight
+     */
+    public function setResultRight($resultRight)
+    {
+        $this->resultRight = $resultRight;
     }
 
 //L = sqrt(R^2 + H^2 + F^2 – 2RHcos(720/h*X))-phi/2-t
@@ -77,7 +206,3 @@ class Wheel
         return $spoke;
     }
 }
-
-$wheel = new Wheel(600, 32, 30, 30, 35, 3);
-echo $wheel->leftSpoke() . '<br>';
-echo $wheel->rightSpoke();

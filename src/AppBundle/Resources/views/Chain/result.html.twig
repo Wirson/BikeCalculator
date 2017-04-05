@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div>
+        <p>Front largest chainring: {{ data.front }}T</p>
+        <p>Rear largest cog: {{ data.rear}}T</p>
+        <p>Distance between bottom bracket and center of rear wheel: {{ data.stay }}"</p>
+        <p>Chain length: {{ data.result }} complete links</p>
+    </div>
+{% endblock %}

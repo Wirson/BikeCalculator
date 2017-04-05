@@ -6,8 +6,9 @@
  * Time: 10:11
  */
 
-namespace AppBundle;
+namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 
 class Chain
 {
@@ -21,17 +22,81 @@ class Chain
     private $result;
 
     /**
-     * Chain constructor.
-     * @param $front
-     * @param $rear
-     * @param $stay
+     * @return mixed
      */
-    public function __construct($front, $rear, $stay)
+    public function getFront()
+    {
+        return $this->front;
+    }
+
+    /**
+     * @param mixed $front
+     */
+    public function setFront($front)
     {
         $this->front = $front;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRear()
+    {
+        return $this->rear;
+    }
+
+    /**
+     * @param mixed $rear
+     */
+    public function setRear($rear)
+    {
         $this->rear = $rear;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStay()
+    {
+        return $this->stay;
+    }
+
+    /**
+     * @param mixed $stay
+     */
+    public function setStay($stay)
+    {
         $this->stay = $stay;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+
+    /**
+     * @param mixed $result
+     */
+    public function setResult($result)
+    {
+        $this->result = $result;
+    }
+
+//    /**
+//     * Chain constructor.
+//     * @param $front
+//     * @param $rear
+//     * @param $stay
+//     */
+//    public function __construct($front, $rear, $stay)
+//    {
+//        $this->front = $front;
+//        $this->rear = $rear;
+//        $this->stay = $stay;
+//    }
 
     public function chainLength()
     {
@@ -42,7 +107,3 @@ class Chain
                 'length' => $length];
     }
 }
-
-$chain = new Chain(44, 22, 16);
-
-var_dump($chain->chainLength());
