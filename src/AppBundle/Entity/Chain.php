@@ -9,17 +9,58 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Chain
 {
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue()
+     */
+    private $id;
+
     //largest front chainring teeth
+    /**
+     * @Assert\Range(
+     *     min="8",
+     *     max="60",
+     *     minMessage="your front chainring isn't so small",
+     *     maxMessage="your front chainring isn't so large")
+     * @Assert\Type("integer", message="please put numeric value")
+     * @ORM\Column(type="smallint")
+     */
     private $front;
     //largest rear cog teeth
+    /**
+     * @Assert\Range(
+     *     min="5",
+     *     max="50",
+     *     minMessage="your rear cog isn't so small",
+     *     maxMessage="your rear isn't so large")
+     * @Assert\Type("integer", message="please put numeric value")
+     * @ORM\Column(type="smallint")
+     */
     private $rear;
     //chain stay length in inches
+    /**
+     * @Assert\Type("integer", message="please put numeric value")
+     * @ORM\Column(type="decimal")
+     */
     private $stay;
     //calc result
+    /**
+     * @ORM\Column(type="decimal")
+     */
     private $result;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return mixed

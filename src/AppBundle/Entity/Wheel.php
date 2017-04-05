@@ -9,44 +9,76 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Wheel
 {
+    /**
+     * @ORM\Id()
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue()
+     */
+    private $id;
+
     //effective rim diameter, mm
+    /**
+     * @Assert\Type("integer", message="please put numeric value")
+     * @ORM\Column(type="integer")
+     */
     private $ERD;
+
     //spoke holes, 36, 32 as standard
+    /**
+     * @Assert\Type("integer", message="please put numeric value")
+     * @ORM\Column(type="integer")
+     */
     private $holes;
+
     //distance between center of the hub to Left flange center, mm
+    /**
+     * @Assert\Type("integer", message="please put numeric value")
+     * @ORM\Column(type="integer")
+     */
     private $centerToLeft;
+
     //mm
+    /**
+     * @Assert\Type("integer", message="please put numeric value")
+     * @ORM\Column(type="integer")
+     */
     private $centerToRight;
+
     //mm
+    /**
+     * @Assert\Type("integer", message="please put numeric value")
+     * @ORM\Column(type="integer")
+     */
     private $flangeDiameter;
+
     //from 0 to 4, integer
+    /**
+     * @Assert\Type("integer", message="please put numeric value")
+     * @ORM\Column(type="integer")
+     */
     private $crosses;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $resultLeft;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $resultRight;
 
-//    /**
-//     * Wheel constructor.
-//     * @param $ERD
-//     * @param $holes
-//     * @param $centerToLeft
-//     * @param $centerToRight
-//     * @param $flangeDiameter
-//     * @param $crosses
-//     */
-//    public function __construct($ERD, $holes, $centerToLeft, $centerToRight, $flangeDiameter, $crosses)
-//    {
-//        $this->ERD = $ERD;
-//        //formula I use, requires half the number of spokes
-//        $this->holes = $holes / 2;
-//        $this->centerToLeft = $centerToLeft;
-//        $this->centerToRight = $centerToRight;
-//        $this->flangeDiameter = $flangeDiameter;
-//        $this->crosses = $crosses;
-//    }
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return mixed
