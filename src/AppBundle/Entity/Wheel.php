@@ -24,6 +24,11 @@ class Wheel
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="wheels")
+     */
+    private $user;
+
     //effective rim diameter, mm
     /**
      * @Assert\Type("integer", message="please put numeric value")
@@ -240,5 +245,28 @@ class Wheel
         $spoke = round($floatSpoke, 0, PHP_ROUND_HALF_EVEN);
         $this->resultRight = $spoke;
         return $spoke;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     * @return Wheel
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

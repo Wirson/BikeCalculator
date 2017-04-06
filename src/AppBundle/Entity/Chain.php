@@ -24,6 +24,11 @@ class Chain
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="chains")
+     */
+    private $user;
+
     //largest front chainring teeth
     /**
      * @Assert\Range(
@@ -57,12 +62,6 @@ class Chain
      * @ORM\Column(type="decimal")
      */
     private $result;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(name="")
-     */
-    private $userId;
 
     /**
      * @return mixed
@@ -156,5 +155,28 @@ class Chain
         $this->result = $length;
         return ['floatLength' => $floatLength,
                 'length' => $length];
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     * @return Chain
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
