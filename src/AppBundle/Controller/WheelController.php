@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class WheelController extends Controller
 {
@@ -35,6 +36,43 @@ class WheelController extends Controller
         $form->handleRequest($request);
         $wheel->rightSpoke();
         $wheel->leftSpoke();
-        return $this->render('AppBundle:Wheel:result.html.twig', ['data' => $wheel]);
+        $tableWheel = [
+            'centerToLeft' => $wheel->getCenterToLeft(),
+            'centerToRight' => $wheel->getCenterToRight(),
+            'flangeDiameter' => $wheel->getFlangeDiameter(),
+            'crosses' => $wheel->getCrosses(),
+            'ERD' => $wheel->getERD(),
+            'holes' => $wheel->getHoles(),
+            'leftSpoke' => $wheel->getResultLeft(),
+            'rightSpoke' => $wheel->getResultRight()
+            ];
+        $serialized = serialize($tableWheel);
+        return $this->render('AppBundle:Wheel:result.html.twig', ['data' => $wheel, 'serialized' => $serialized]);
+    }
+
+    /**
+     * @Route("/wheelPdf")
+     */
+    public function pdfAction(Request $request)
+    {
+        $wheel = unserialize($request->query->get('serialized'));
+        $html = $this->renderView('AppBundle:Wheel:pdf.html.twig', ['data' => $wheel]);
+
+        return new Response(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'attachment; filename="file.pdf"'
+            )
+        );
+    }
+
+    /**
+     *
+     */
+    public function saveAction()
+    {
+
     }
 }

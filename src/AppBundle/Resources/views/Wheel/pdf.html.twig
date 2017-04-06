@@ -1,5 +1,4 @@
-{% extends "::base.html.twig" %}
-
+{% extends '::pdfBase.html.twig' %}
 {% block body %}
     <div>
         <p>Hub center-to-left flange distance: {{ data.centerToLeft }} mm</p>
@@ -11,8 +10,4 @@
         <p>Left spokes length: {{ data.leftSpoke }} mm</p>
         <p>Right spokes length: {{ data.rightSpoke }} mm</p>
     </div>
-    {% if is_granted('ROLE_USER') %}
-        <a href="{{ path('app_wheel_save') }}"><button>Save</button></a>
-    {% endif %}
-    <a href="{{ path('app_wheel_pdf', {'serialized': serialized}) }}"><button>download PDF</button></a>
 {% endblock %}

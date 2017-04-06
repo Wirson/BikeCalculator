@@ -6,6 +6,7 @@ use AppBundle\Entity\Chain;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ChainController extends Controller
 {
@@ -34,6 +35,26 @@ class ChainController extends Controller
         $form = $this->createForm('AppBundle\Form\ChainType', $chain);
         $form->handleRequest($request);
         $chain->chainLength();
-        return $this->render('AppBundle:Chain:result.html.twig', ['data' => $chain]);
+        $tableChain = ['front' => $chain->getFront(), 'rear' => $chain->getRear(), 'stay' => $chain->getStay(), 'result' => $chain->getResult()];
+        $serialized = serialize($tableChain);
+        return $this->render('AppBundle:Chain:result.html.twig', ['data' => $chain, 'serialized' => $serialized]);
+    }
+
+    /**
+     * @Route("/chainPdf")
+     */
+    public function pdfAction(Request $request)
+    {
+        $chain = unserialize($request->query->get('serialized'));
+        $html = $this->renderView('AppBundle:Chain:pdf.html.twig', ['data' => $chain]);
+
+        return new Response(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'attachment; filename="file.pdf"'
+            )
+        );
     }
 }

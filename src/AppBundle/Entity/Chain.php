@@ -11,6 +11,10 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="Chain")
+ */
 class Chain
 {
     /**
@@ -53,6 +57,12 @@ class Chain
      * @ORM\Column(type="decimal")
      */
     private $result;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="")
+     */
+    private $userId;
 
     /**
      * @return mixed
