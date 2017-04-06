@@ -20,13 +20,11 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="smallint")
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Wheel", mappedBy="id")     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Wheel", mappedBy="id")
      */
     private $wheels;
 
     /**
-     * @ORM\Column(type="smallint")
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Chain", mappedBy="id")
      */
     private $chains;

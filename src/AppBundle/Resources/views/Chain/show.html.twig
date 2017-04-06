@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>Front largest chainring</th>
+            <th>Rear largest cog</th>
+            <th>Distance between bottom bracket and center of rear wheel</th>
+            <th>Chain length</th>
+        </tr>
+        {% for chain in chains %}
+        <tr>
+            <td>{{ chain.front }}T</td>
+            <td>{{ chain.rear}}T</td>
+            <td>{{ chain.stay }}"</td>
+            <td>{{ chain.result }} complete links</td>
+            <td><a href=" {{ path('app_chain_remove', {'id': chain.id}) }}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

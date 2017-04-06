@@ -27,6 +27,10 @@
             {% endfor %}
         {% endfor %}
     {% endif %}
+    {% if is_granted('ROLE_USER') %}
+        <a href="{{ path('app_chain_show') }}">show chains</a>
+        <a href="{{ path('app_wheel_show') }}">show wheels</a>
+    {% endif %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

@@ -8,4 +8,7 @@
         <p>Chain length: {{ data.result }} complete links</p>
     </div>
     <a href="{{ path('app_chain_pdf', {'serialized': serialized}) }}"><button>download PDF</button></a>
+    {% if is_granted('ROLE_USER') %}
+        <a href="{{ path('app_chain_save') }}"><button>Save</button></a>
+    {% endif %}
 {% endblock %}

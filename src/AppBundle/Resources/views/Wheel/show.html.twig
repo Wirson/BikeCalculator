@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>Hub center-to-left flange distance</th>
+            <th>Hub center-to-right flange distance</th>
+            <th>Hub flange diameter</th>
+            <th>Number of each spoke crosses</th>
+            <th>Rim effective diameter</th>
+            <th>Number of spoke holes</th>
+            <th>Left spokes length</th>
+            <th>Right spokes length</th>
+        </tr>
+        {% for wheel in wheels %}
+        <tr>
+            <td>{{ wheel.centerToLeft }}mm</td>
+            <td>{{ wheel.centerToRight }}mm</td>
+            <td>{{ wheel.flangeDiameter }}mm</td>
+            <td>{{ wheel.crosses }}mm</td>
+            <td>{{ wheel.ERD }}mm</td>
+            <td>{{ wheel.holes }}</td>
+            <td>{{ wheel.leftSpoke }}mm</td>
+            <td>{{ wheel.rightSpoke }}mm</td>
+            <td><a href=" {{ path('app_wheel_remove', {'id': wheel.id}) }}">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
