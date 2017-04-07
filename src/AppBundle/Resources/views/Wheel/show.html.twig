@@ -1,7 +1,8 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    <table>
+<div class="table-responsive">
+    <table class="table-condensed">
         <tr>
             <th>Hub center-to-left flange distance</th>
             <th>Hub center-to-right flange distance</th>
@@ -26,4 +27,5 @@
         </tr>
         {% endfor %}
     </table>
+</div>
 {% endblock %}

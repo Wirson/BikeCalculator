@@ -15,4 +15,12 @@ class DefaultController extends Controller
     {
         return $this->render('AppBundle::homepage.html.twig');
     }
+
+    /**
+     * @Route("/about")
+     */
+    public function aboutAction()
+    {
+        return $this->render('AppBundle::about.html.twig');
+    }
 }

@@ -263,7 +263,7 @@ class Wheel
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User 
+     * @return \AppBundle\Entity\User
      */
     public function getUser()
     {

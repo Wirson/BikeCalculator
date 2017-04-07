@@ -15,12 +15,12 @@ class WheelType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->
-        add('ERD', null, ['attr' => ['placeholder' => 'Effective rim diameter in mm']])->
-        add('holes', null, ['attr' => ['placeholder' => 'number of holes']])->
-        add('centerToLeft', null, ['attr' => ['placeholder' => 'center to left distance in mm']])->
-        add('centerToRight', null, ['attr' => ['placeholder' => 'center to right distance in mm']])->
-        add('flangeDiameter', null, ['attr' => ['placeholder' => 'Flange Diameter in mm']])->
-        add('crosses', null, ['attr' => ['placeholder' => 'number of crosses, 0-4']]);
+        add('ERD', null, ['attr' => ['placeholder' => 'ERD'], 'label' => 'Effective rim diameter in mm'])->
+        add('holes', null, ['attr' => ['placeholder' => 'just count them'], 'label' => 'Number of holes'])->
+        add('centerToLeft', null, ['attr' => ['placeholder' => 'mm'], 'label' => 'Distance from center of hub to left flange'])->
+        add('centerToRight', null, ['attr' => ['placeholder' => 'mm'], 'label' => 'Distance from center of hub to right flange'])->
+        add('flangeDiameter', null, ['attr' => ['placeholder' => 'mm'], 'label' => 'Flange diameter'])->
+        add('crosses', null, ['attr' => ['placeholder' => '0-4'], 'label' => 'Number of crosses']);
 
     }
     

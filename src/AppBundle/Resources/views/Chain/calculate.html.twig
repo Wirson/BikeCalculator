@@ -1,8 +1,14 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="Calculate">
-    {{ form_end(form) }}
+    <img src="{{ asset('images/chainsize.jpg') }}">
+    {% block form %}
+        <div class="input-group input-group-lg">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input class="btn btn-primary" type="submit" value="Calculate">
+            {{ form_end(form) }}
+        </div>
+    {% endblock %}
+    <img src="{{ asset('images/rigorous.gif') }}">
 {% endblock %}

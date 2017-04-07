@@ -1,13 +1,18 @@
 {% extends '::pdfBase.html.twig' %}
 {% block body %}
-    <div>
-        <p>Hub center-to-left flange distance: {{ data.centerToLeft }} mm</p>
-        <p>Hub center-to-right flange distance: {{ data.centerToRight }} mm</p>
-        <p>Hub flange diameter: {{ data.flangeDiameter }} mm</p>
-        <p>Number of each spoke crosses: {{ data.crosses }}</p>
-        <p>Rim effective diameter: {{ data.ERD }} mm</p>
-        <p>Number of spoke holes: {{ data.holes }}</p>
-        <p>Left spokes length: {{ data.leftSpoke }} mm</p>
-        <p>Right spokes length: {{ data.rightSpoke }} mm</p>
+    <div class="page-header">
+        <h3>Spoke lengths calculation results</h3>
+    </div>
+    <div class="col-md-2">
+        <ul class="list-group">
+            <li class="list-group-item">Hub center-to-left flange distance: {{ data.centerToLeft }} mm</li>
+            <li class="list-group-item">Hub center-to-right flange distance: {{ data.centerToRight }} mm</li>
+            <li class="list-group-item">Hub flange diameter: {{ data.flangeDiameter }} mm</li>
+            <li class="list-group-item">Number of each spoke crosses: {{ data.crosses }}</li>
+            <li class="list-group-item">Rim effective diameter: {{ data.ERD }} mm</li>
+            <li class="list-group-item">Number of spoke holes: {{ data.holes }}</li>
+            <li class="list-group-item">Left spokes length: {{ data.leftSpoke }} mm</li>
+            <li class="list-group-item">Right spokes length: {{ data.rightSpoke }} mm</li>
+        </ul>
     </div>
 {% endblock %}

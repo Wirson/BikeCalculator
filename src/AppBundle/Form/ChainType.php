@@ -15,9 +15,9 @@ class ChainType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->
-        add('front', null, ['attr' => ['placeholder' => 'n teeth of front largest chainring']])->
-        add('rear', null, ['attr' => ['placeholder' => 'n teeth of rear largest cog']])->
-        add('stay', null, ['attr' => ['placeholder' => 'distance in inches']]);
+        add('front', null, ['attr' => ['placeholder' => 'T'], 'label' => 'Front largest chainring teeth'])->
+        add('rear', null, ['attr' => ['placeholder' => 'T'], 'label' => 'Rear largest cog teeth'])->
+        add('stay', null, ['attr' => ['placeholder' => 'inches'], 'label' => 'Stay length']);
 
     }
     /**

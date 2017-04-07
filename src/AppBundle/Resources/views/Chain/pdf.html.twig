@@ -1,9 +1,14 @@
 {% extends '::pdfBase.html.twig' %}
 {% block body %}
-    <div>
-        <p>Front largest chainring: {{ data.front }}T</p>
-        <p>Rear largest cog: {{ data.rear}}T</p>
-        <p>Distance between bottom bracket and center of rear wheel: {{ data.stay }}"</p>
-        <p>Chain length: {{ data.result }} complete links</p>
+    <div class="page-header">
+        <h3>Chain length calculation results</h3>
+    </div>
+    <div class="col-md-2">
+        <ul class="list-group">
+            <li class="list-group-item">Front largest chainring: {{ data.front }}T</li>
+            <li class="list-group-item">Rear largest cog: {{ data.rear}}T</li>
+            <li class="list-group-item">Distance between bottom bracket and center of rear wheel: {{ data.stay }}"</li>
+            <li class="list-group-item">Chain length: {{ data.result }} complete links</li>
+        </ul>
     </div>
 {% endblock %}

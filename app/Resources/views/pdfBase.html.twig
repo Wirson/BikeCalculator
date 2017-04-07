@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}BikeCalculator{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-    {% block body %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}BikeCalculator{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div class="page-header">
+    <h1>Bike Calculator results</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        {% block body %}{% endblock %}
+        <div class="col-md-1">
+        </div>
+    </div>
+</div>
+</body>
 </html>
